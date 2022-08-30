@@ -1,0 +1,40 @@
+OPIS:
+Termin wykonania do 30.08.22
+Zadanie  Prośba o stworzenie aplikacji, która pobiera ze strony http://api.nbp.pl/ aktualne kursy walut. Pobrane kursy należy wyświetlić na stronie oraz zapisać do bazy". 
+
+DOK:
+http://api.nbp.pl/#kursyWalut
+
+przykłady:
+https://api.nbp.pl/api/exchangerates/tables/a
+https://api.nbp.pl/api/exchangerates/tables/b
+https://api.nbp.pl/api/exchangerates/tables/c
+http://api.nbp.pl/api/exchangerates/rates/a/chf/
+
+PRZYDATNE RZECZY:
+JSON serializacja: https://json2csharp.com/
+
+KROKI:
+1. utworzyć bazę [V]
+
+2. połączyć się ze stroną api nbp i ściągnąć dane do obiektu i wrzucić do bazy
+	>utworzyć kontroler i logikę w service [V]
+	>będzie łączył się z NBP i zwracał kod błędu jeśli się nie połączy [V]
+	>zserializuje dane do obiektu [V]
+	>obiekt wrzuci do bazy [V]
+	>zmienić strukture bazy Rates by wchodził jeden wiersz a nie 30 przy wpisie []
+		cos nie idzie z ty rates2, pomyslec nad inna koncepcja
+
+3. wynik wyświetlić na stronie używająć razor czy tam blazor pages. jak nie wyjdzie to użyć reacta
+	>po kliknięciu mam się odpalić kontroler
+
+
+4. potem mozna pomyslec czy jest sens pozbyc sie niektorych kolumn by pasowaly do momdelu dto
+
+
+struktura program:
+
+//0. utworzenie webhosta (to co było w program)
+//1. rejestracja zaleznosci w kontenerze DI (configure services)
+//2. budowanie aplikacji
+//3. dodanie middleware jak w configu (configure)
